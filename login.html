@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>এজেন্ট লাইসেন্সিং অনলাইন মডিউল</title>
+    <title>ALO: Agent Licencing Online Module</title>
     <meta name="title" content="Agent Licencing Online Module" />
     <meta
       name="description"
@@ -14,9 +14,18 @@
       content="UMP, ALO, Agent Licencing Online Module, IDRA, Insurance Development and Regulatory Authority, Licence, Agent"
     />
     <meta name="author" content="IDRA" />
+    <!-- Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles in CSS -->
     <style>
       body {
-        background-image: url("https://alo.celloscope.net/login-page-bg.a18c90f357022e9d.svg");
+        font-family: "Roboto", sans-serif;
+        background-image: url("/images/login-page-bg.svg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -25,10 +34,12 @@
         position: relative;
       }
       main {
-        padding: 30px;
+        height: 100vh;
       }
       .main-container {
+        padding: 30px;
         width: 100%;
+        height: 100%;
         box-sizing: border-box;
         display: flex;
         justify-items: center;
@@ -36,18 +47,10 @@
         row-gap: 5%;
         column-gap: 5%;
       }
-      .idra-logo {
+      .logo {
         display: block;
         margin: 0 auto;
         margin-bottom: 20px;
-      }
-      /* Form Title */
-      .form-title {
-        color: #3c8dbc;
-        text-align: center;
-        margin-bottom: 2rem;
-        margin-top: 0px;
-        font-size: 24px !important;
       }
 
       /* Login Form Container Div */
@@ -144,6 +147,7 @@
         width: 100%;
         height: 46px;
         font-weight: 600;
+        font-size: 16px;
         background: linear-gradient(180deg, #4199cc 0%, #146695 100%);
         border: none;
         cursor: pointer;
@@ -157,41 +161,28 @@
         opacity: 0.8;
         color: #fff;
       }
+      #toggle-password {
+        cursor: pointer;
+      }
 
       footer {
-        color: #3c8dbc;
-        font-size: 14px;
         display: flex;
-        justify-content: space-between;
-        padding: 0px 20px;
+        justify-content: end;
+        padding: 0 20px;
+        position: fixed;
+        bottom: 0px;
+        width: 95%;
       }
 
-      .footer-link-group {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .link-container {
-        display: flex;
-        gap: 20px;
-        color: #3c8dbc;
-      }
-      .footer-link {
-        text-decoration: none;
-        background-color: transparent;
-        box-sizing: border-box;
+      #eye-open {
+        display: none;
       }
 
       /* Media Queries */
+      /* For Mobile Devices */
       @media (max-width: 575.98px) {
         .image-container {
           display: none;
-        }
-        .main-container {
-          display: block;
-          width: 100%;
         }
         .login-form-container {
           width: 100%;
@@ -200,21 +191,7 @@
           width: 100%;
         }
         footer {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          display: flex;
-          flex-flow: column-reverse nowrap;
-          gap: 10px;
-          padding: 10px;
-        }
-        .link-container {
-          gap: 5px;
-          justify-content: center;
-          align-items: center;
-        }
-        .copyright-text {
-          text-align: center;
+          width: 90%;
         }
       }
     </style>
@@ -230,21 +207,19 @@
             <img
               height="auto"
               width="50%"
-              src="https://alo.celloscope.net/assets/images/idra_logo.png"
+              src="/images/idra_logo.png"
               alt="IDRA Logo"
-              class="idra-logo"
+              class="logo"
             />
-            <h2 class="form-title">এজেন্ট লাইসেন্সিং অনলাইন মডিউল</h2>
-
             <!-- Form -->
             <form>
               <!-- User Id -->
               <div class="form-group">
-                <label for="username" class="form-label">ইউজার আইডি</label>
+                <label for="username" class="form-label">User ID</label>
                 <div class="input-container">
                   <span class="icon">
                     <img
-                      src="https://alo.celloscope.net/assets/images/user-icon.svg"
+                      src="/images/user-icon.svg"
                       alt="user icon"
                       class="user-icon"
                     />
@@ -253,7 +228,7 @@
                     class="input-field"
                     type="text"
                     name="username"
-                    placeholder="ইউজার আইডি লিখুন"
+                    placeholder="Enter User ID"
                     autocomplete="off"
                     maxlength="20"
                   />
@@ -262,11 +237,11 @@
 
               <!-- Password -->
               <div>
-                <label for="password" class="form-label">পাসওয়ার্ড</label>
+                <label for="password" class="form-label">Password</label>
                 <div class="input-container">
                   <span class="icon">
                     <img
-                      src="https://alo.celloscope.net/assets/images/lock-icon.svg"
+                      src="/images/lock-icon.svg"
                       alt="password icon"
                       class="user-icon"
                     />
@@ -275,13 +250,21 @@
                     class="input-field"
                     type="password"
                     name="password"
-                    placeholder="পাসওয়ার্ড লিখুন"
+                    id="password"
+                    placeholder="Enter your password"
                     autocomplete="off"
                     maxlength="20"
                   />
-                  <span class="password-icon">
+                  <span class="password-icon" id="toggle-password">
                     <img
-                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjQ5IDkuOTRDMTIuNDc0NCA5LjI4OTE0IDEyLjIwNTUgOC42NzAwNSAxMS43NDA1IDguMjE0MzhDMTEuMjc1NSA3Ljc1ODcxIDEwLjY1MSA3LjUwMjQyIDEwIDcuNUwxMi40OSA5Ljk0WiIgZmlsbD0iIzZBQTdDQSIvPgo8cGF0aCBkPSJNOC4yIDUuOUM4Ljc2NDgyIDUuNjQwNDUgOS4zNzg0MSA1LjUwNDEgMTAgNS41QzExLjE5MzUgNS41IDEyLjMzODEgNS45NzQxMSAxMy4xODIgNi44MTgwMkMxNC4wMjU5IDcuNjYxOTMgMTQuNSA4LjgwNjUzIDE0LjUgMTBDMTQuNDk4OCAxMC41MyAxNC40MDA1IDExLjA1NTQgMTQuMjEgMTEuNTVMMTcgMTQuMTRDMTguMjQ1NiAxMi45NTU4IDE5LjI2MjYgMTEuNTUyNCAyMCAxMEMyMCAxMCAxNyAzIDEwIDNDOC42MjExOSAyLjk5MzcxIDcuMjU3MTEgMy4yODM1NyA2IDMuODVMOC4yIDUuOVpNMiAyTDEgM0wzLjU1IDUuNEMyLjA1NTYgNi42NjU5MSAwLjg0NTc5NiA4LjIzMzU0IDAgMTBDMCAxMCAzIDE3IDEwIDE3QzExLjYxOTQgMTcuMDA4IDEzLjIxNDkgMTYuNjA5MSAxNC42NCAxNS44NEwxOCAxOUwxOSAxOEwyIDJaTTEwIDE0LjVDOC44MDY1MyAxNC41IDcuNjYxOTMgMTQuMDI1OSA2LjgxODAyIDEzLjE4MkM1Ljk3NDExIDEyLjMzODEgNS41IDExLjE5MzUgNS41IDEwQzUuNTA1NTIgOS4yMjcgNS43MTIzMSA4LjQ2ODc3IDYuMSA3LjhMNy42MyA5LjI0QzcuNTQ3MTUgOS40ODQ5NyA3LjUwMzI4IDkuNzQxNDIgNy41IDEwQzcuNDk4OTkgMTAuNDA3IDcuNTk3NzYgMTAuODA4MSA3Ljc4NzY3IDExLjE2OEM3Ljk3NzU4IDExLjUyOCA4LjI1Mjg0IDExLjgzNiA4LjU4OTM0IDEyLjA2NDlDOC45MjU4NSAxMi4yOTM5IDkuMzEzMzUgMTIuNDM2OCA5LjcxNzkyIDEyLjQ4MTNDMTAuMTIyNSAxMi41MjU4IDEwLjUzMTggMTIuNDcwNCAxMC45MSAxMi4zMkwxMi40NSAxMy43N0MxMS43MjE4IDE0LjI0NjcgMTAuODcwMyAxNC41MDA0IDEwIDE0LjVaIiBmaWxsPSIjNkFBN0NBIi8+Cjwvc3ZnPgo="
+                      id="eye-hide"
+                      src="/images/eye-hide.svg"
+                      alt="see password icon"
+                      class="user-icon"
+                    />
+                    <img
+                      id="eye-open"
+                      src="/images/eye-open.svg"
                       alt="see password icon"
                       class="user-icon"
                     />
@@ -292,12 +275,12 @@
               <div class="forgot-password-container">
                 <span class="forgot-password"
                   ><a href="#" class="forgot-password-link"
-                    >পাসওয়ার্ড ভুলে গেছেন?</a
+                    >Forgot password?</a
                   ></span
                 >
               </div>
 
-              <button type="submit" class="sign-in-button">সাইন ইন</button>
+              <button type="submit" class="sign-in-button">Sign In</button>
             </form>
           </div>
         </div>
@@ -305,7 +288,7 @@
         <!-- Image Container -->
         <div class="image-container">
           <img
-            src="https://alo.celloscope.net/assets//images/login-right-section.svg"
+            src="/images/login-right-section.svg"
             alt="Login Image"
             width="65%"
             height="auto"
@@ -317,35 +300,40 @@
 
     <!-- Footer -->
     <footer>
-      <p class="copyright-text">
-        Copyright © 2021 - 2023, ALO. All rights reserved by IDRA
-      </p>
-
-      <div class="link-container">
-        <div class="footer-link-group">
-          <img
-            src="https://alo.celloscope.net/assets/images/privacy-policy.svg"
-            alt="privacy logo"
-          />
-          <a href="#" class="footer-link">Privacy Policy</a>
-        </div>
-
-        <div class="footer-link-group">
-          <img
-            src="https://alo.celloscope.net/assets/images/faq.svg"
-            alt="faq logo"
-          />
-          <a href="#" class="footer-link">FAQ</a>
-        </div>
-
-        <div class="footer-link-group">
-          <img
-            src="https://alo.celloscope.net/assets/images/user-manual.svg"
-            alt="user manual logo"
-          />
-          <a href="#" class="footer-link">User Manual</a>
-        </div>
+      <div class="footer-container">
+        <img
+          width="50px"
+          height="auto"
+          src="/images/ump_logo.png"
+          alt="UMP Logo"
+          class="logo"
+        />
       </div>
     </footer>
+
+    <!-- Script For toggling password field type -->
+    <script>
+      // Get span tag with id
+      const togglePasswordButton = document.getElementById("toggle-password");
+
+      // adding onclick
+      togglePasswordButton.addEventListener("click", () => {
+        // get all fields
+        const passwordField = document.getElementById("password");
+        const eyeHide = document.getElementById("eye-hide");
+        const eyeOpen = document.getElementById("eye-open");
+
+        // if field type is password, then hide the eyehide icon and display eyeopen icon, also change the field type and vice versa
+        if (passwordField.type == "password") {
+          passwordField.type = "text";
+          eyeHide.style.display = "none";
+          eyeOpen.style.display = "block";
+        } else if (passwordField.type == "text") {
+          passwordField.type = "password";
+          eyeHide.style.display = "block";
+          eyeOpen.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

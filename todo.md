@@ -1,4 +1,4 @@
-* Change all text from bangla to english
-* Form title text should be deleted
-* Delete footer, add a logo to left bottom of the screen
-* toggle see password button through js script
+* Bring the login form container to center of the screen ::: DONE
+* change the logo (ump logo will be there) ::: DONE
+* make a folder for images and store them, use local images ::: DONE
+* toggle see password button through js script ::: DONE
